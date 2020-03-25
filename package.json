@@ -2,6 +2,9 @@
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
   "main": "src/index.js",
+  "bin": {
+    "brain-games": "bin/brain-game.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
