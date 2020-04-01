@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-console.log('Welcome to the Brain Games!');
+import actual from '../src/index.js';
+
+
+console.log('Welcome to the Brain Gamessss!');
+
+actual();
