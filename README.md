@@ -2,3 +2,5 @@
 
 
 ![LINTER SAY](https://github.com/actions/frontend-project-lvl1/workflows/Linter_starter/badge.svg)
+
+[![asciicast](https://asciinema.org/a/quaZlSSJJBI4nXLLwfMmgPm4W.svg)](https://asciinema.org/a/quaZlSSJJBI4nXLLwfMmgPm4W)

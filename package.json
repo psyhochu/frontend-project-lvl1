@@ -4,6 +4,7 @@
   "main": "src/index.js",
   "type": "module",
   "bin": {
+    "brain-even": "bin/brain-even.js",
     "brain-games": "bin/brain-game.js"
   },
   "scripts": {
