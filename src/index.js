@@ -2,35 +2,30 @@ import readlineSync from 'readline-sync';
 
 // Спрашивает имя и выводит его на экран
 const actual = () => {
+  console.log('Welcome to the Brain Games!');
   const NameChoose = readlineSync.question('Choose u name: ');
   console.log(`Hi ${NameChoose} !`);
   return NameChoose;
 };
 
-// Возвращает yes если число четное, no в других случаях
-export const isEven = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+export default actual;
 
 // Выводит "Question : любой вопрос"
-export const printSimpleQuestion = (youQuestion) => {
+const printSimpleQuestion = (youQuestion) => {
   console.log(`Question: ${youQuestion}`);
 };
 
 
 // Принимает ответ от пользователя и возвращает его
-export const answer = () => {
+const answer = () => {
   const YouAnswer = readlineSync.question('Your answer: ');
   return YouAnswer;
 };
 
-// Принимает ответ пользователя и правильный ответ, если ответы совпадают,
+// Принимает ответ пользователя и правильное решение, если ответы совпадают,
 // то печатает "Correct!" и возвращает true, иначе false.
 
-export const correctOrNot = (answer1, answer2) => {
+const correctOrNot = (answer1, answer2) => {
   if (answer1 === answer2) {
     console.log('Correct!');
     return true;
@@ -38,21 +33,32 @@ export const correctOrNot = (answer1, answer2) => {
   return false;
 };
 
-// Логика игры для brai-even модуля возвращаем true или false;
-export const evenGame = (...numbers) => {
-  for (let i = 0; i < numbers.length; i += 1) {
-  // Выводим первый вопрос, принимаем ответ
-    printSimpleQuestion(numbers[i]);
+// ENGINE;
+export const engine = (funcForEngine, arrOfQuestions) => {
+  for (let i = 0; i < arrOfQuestions.length; i += 1) {
+  // Выводим первый вопрос из массива, принимаем ответ
+    printSimpleQuestion(arrOfQuestions[i]);
     const answer1 = answer();
-    const answerTrue = isEven(numbers[i]);
+    // Правильный ответ:
+    const answer2 = funcForEngine(arrOfQuestions[i]);
     // Проверяем правильность ответа
-    if (correctOrNot(answer1, answerTrue)) {
-    //  console.log('Correct!');
+    if (correctOrNot(answer1, answer2)) {
+    //  console.log('Correct!') пока вывод в другое;
     } else {
-      return ['Not correct', answer1, answerTrue];
+      return ['Not Correct', answer1, answer2];
     }
   }
   return 'Correct';
 };
 
-export default actual;
+// RESULT
+// Эта функция печатает на экран окончательные слова о прохождении или провале в игре
+
+export const resultOfGame = (gameEngineResult, name) => {
+  if (gameEngineResult === 'Correct') {
+    console.log(`Congratulations ${name}!`);
+  } else {
+    console.log(`"${gameEngineResult[1]}" is wrong answer ;(. Correct answer was "${gameEngineResult[2]}".
+  Let's try again, ${name}`);
+  }
+};

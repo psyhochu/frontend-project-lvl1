@@ -1,17 +1,26 @@
 #!/usr/bin/env node
 
-import * as game from '../src/index.js';
-import actual from '../src/index.js';
+import actual, { engine, resultOfGame } from '../src/index.js';
+
+
+// FUNC FOR ENGINE
+// Принимает число, возвращает yes если число четное, no в других случаях
+const isEven = (num) => {
+  if (num % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
 
 // Поприветствуем и спросим имя
-console.log('Welcome to the Brain Games!');
 const name = actual();
+// Задаем вопрос
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
-const gameAct = game.evenGame(15, 6, 7);
+// Список вопросов в виде массива
+const arrOfQuestions = [15, 6, 4];
+// Игровой движок принимает функцию и список вопросов, задает вопросы
+// и выдает вердикт о корректности ответов.
+const gameStart = engine(isEven, arrOfQuestions);
 
-if (gameAct === 'Correct') {
-  console.log(`Congratulations ${name}!`);
-} else {
-  console.log(`"${gameAct[1]}" is wrong answer ;(. Correct answer was "${gameAct[2]}".
-Let's try again, ${name}`);
-}
+// Печатаем на экран ты выиграл иль ты тупой
+resultOfGame(gameStart, name);
