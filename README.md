@@ -1,10 +1,14 @@
-##Brain-even:
+## Brain-even:
 
 [![asciicast](https://asciinema.org/a/quaZlSSJJBI4nXLLwfMmgPm4W.svg)](https://asciinema.org/a/quaZlSSJJBI4nXLLwfMmgPm4W)
 
-##Brain-calc:
+## Brain-calc:
 
 [![asciicast](https://asciinema.org/a/bO0Tslqp0JHtACktKoUuDXeDi.svg)](https://asciinema.org/a/bO0Tslqp0JHtACktKoUuDXeDi)
+
+## Brain-gcd:
+
+[![asciicast](https://asciinema.org/a/Ueqny1jLcpGi1LyAV6cwXsR1s.svg)](https://asciinema.org/a/Ueqny1jLcpGi1LyAV6cwXsR1s)
 
 
 
