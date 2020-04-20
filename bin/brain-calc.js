@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame } from '../src/index.js';
+import actual, { engine, resultOfGame, randomNumber } from '../src/index.js';
 
 // CALC
 // Принимает строчку такого формата (A х B) где A и B числа а "х"

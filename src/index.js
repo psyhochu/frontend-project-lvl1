@@ -33,6 +33,11 @@ const correctOrNot = (answer1, answer2) => {
   return false;
 };
 
+// Функция возвращает число в диапазоне от и до, рандомно
+
+export const randomNumber = (max, min) => Math.floor(Math.random() * (max - min)) + min;
+
+
 // ENGINE;
 export const engine = (funcForEngine, arrOfQuestions) => {
   for (let i = 0; i < arrOfQuestions.length; i += 1) {
