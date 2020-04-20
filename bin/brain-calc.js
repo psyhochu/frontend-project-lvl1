@@ -27,9 +27,6 @@ const randomMathDigit = () => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
-// Функция возвращает число в диапазоне от и до, рандомно
-
-const randomNumber = (max, min) => Math.floor(Math.random() * (max - min)) + min;
 
 // Поприветствуем и спросим имя
 const name = actual();
