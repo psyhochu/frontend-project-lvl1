@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame } from '../src/index.js';
+import actual, { engine, resultOfGame, randomNumber } from '../src/index.js';
 
 
 // FUNC FOR ENGINE
@@ -17,7 +17,9 @@ const name = actual();
 // Задаем вопрос
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 // Список вопросов в виде массива
-const arrOfQuestions = [15, 6, 4];
+const arrOfQuestions = [randomNumber(-100, 100),
+  randomNumber(-100, 100),
+  randomNumber(-100, 100)];
 // Игровой движок принимает функцию и список вопросов, задает вопросы
 // и выдает вердикт о корректности ответов.
 const gameStart = engine(isEven, arrOfQuestions);

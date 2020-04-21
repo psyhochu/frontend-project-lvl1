@@ -3,8 +3,8 @@ import readlineSync from 'readline-sync';
 // Спрашивает имя и выводит его на экран
 const actual = () => {
   console.log('Welcome to the Brain Games!');
-  const NameChoose = readlineSync.question('Choose u name: ');
-  console.log(`Hi ${NameChoose} !`);
+  const NameChoose = readlineSync.question('May I have your name?: ');
+  console.log(`Hello, ${NameChoose}!`);
   return NameChoose;
 };
 
@@ -63,7 +63,7 @@ export const resultOfGame = (gameEngineResult, name) => {
   if (gameEngineResult === 'Correct') {
     console.log(`Congratulations ${name}!`);
   } else {
-    console.log(`"${gameEngineResult[1]}" is wrong answer ;(. Correct answer was "${gameEngineResult[2]}".
-  Let's try again, ${name}`);
+    console.log(`"${gameEngineResult[1]}" is wrong answer ;(. Correct answer was 
+"${gameEngineResult[2]}".Let's try again, ${name}`);
   }
 };
