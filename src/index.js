@@ -35,8 +35,6 @@ const correctOrNot = (answer1, answer2) => {
 
 // Функция возвращает число в диапазоне от и до, рандомно
 
-export const randomNumber = (max, min) => Math.floor(Math.random() * (max - min)) + min;
-
 
 // ENGINE;
 export const engine = (funcForEngine, arrOfQuestions) => {

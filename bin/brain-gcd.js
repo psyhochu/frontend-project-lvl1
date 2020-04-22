@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame, randomNumber } from '../src/index.js';
+import actual, { engine, resultOfGame } from '../src/index.js';
+import randomNumber from './randomisers.js';
 
 // greatest common divisor
 // Принимает строчку такого формата (A B) где A и B числа

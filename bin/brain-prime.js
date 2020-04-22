@@ -1,18 +1,8 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame, randomNumber } from '../src/index.js';
-
-// prime
-// Принимает строку с одним натуральным числом больше нуля и
-// возвращает 'yes' или 'no' в зависимости от того простое число или нет
-const prime = (stringNumber) => {
-  const num = +stringNumber;
-  if (num < 2) return 'no';
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) return 'no';
-  }
-  return 'yes';
-};
+import actual, { engine, resultOfGame } from '../src/index.js';
+import randomNumber from './randomisers.js';
+import prime from './games/prime.js';
 
 
 // Поприветствуем и спросим имя
