@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame } from '../src/index.js';
+import actual, { resultOfGame } from '../src/index.js';
+import engine from '../src/engine.js';
 import randomNumber from './randomisers.js';
 import even from './games/even.js';
 

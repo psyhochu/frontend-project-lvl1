@@ -1,22 +1,9 @@
 #!/usr/bin/env node
 
-import actual, { engine, resultOfGame } from '../src/index.js';
+import actual, { resultOfGame } from '../src/index.js';
+import engine from '../src/engine.js';
 import randomNumber from './randomisers.js';
-
-// greatest common divisor
-// Принимает строчку такого формата (A B) где A и B числа
-// и возвращает НОД этих чисел
-const gcd = (string) => {
-  const strinToArr = string.split(' ');
-  const [num1, num2] = strinToArr;
-  const nod = (x, y) => {
-    if (y > x) return nod(y, x);
-    if (y === 0) return String(x);
-    return nod(y, x % y);
-  };
-  return nod(Math.abs(+num1), Math.abs(+num2));
-};
-
+import gcd from './games/gcd';
 
 // Поприветствуем и спросим имя
 const name = actual();
