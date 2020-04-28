@@ -1,24 +1,28 @@
 import readlineSync from 'readline-sync';
 
-// START GAME
-// Спрашивает имя и выводит его на экран
-const actual = () => {
+
+// ENGINE;
+export default (funcForEngine, mainQuestion, arrOfQuestions) => {
+  // Спрашивает имя и выводит его на экран
   console.log('Welcome to the Brain Games!');
   const NameChoose = readlineSync.question('May I have your name?: ');
   console.log(`Hello, ${NameChoose}!`);
-  return NameChoose;
-};
+  // Задаем основной вопрос
+  console.log(mainQuestion);
 
-export default actual;
-
-
-// RESULT
-// Эта функция печатает на экран окончательные слова о прохождении или провале в игре
-
-export const resultOfGame = (gameEngineResult, name) => {
-  if (gameEngineResult === 'Correct') {
-    console.log(`Congratulations ${name}!`);
-  } else {
-    console.log(`"${gameEngineResult[1]}" is wrong answer ;(. Correct answer was "${gameEngineResult[2]}".Let's try again, ${name}`);
+  for (let i = 0; i < arrOfQuestions.length; i += 1) {
+    // Выводим первую задачу из массива, принимаем ответ
+    console.log(`Question: ${arrOfQuestions[i]}`);
+    const answer1 = readlineSync.question('Your answer: ');
+    // Правильный ответ:
+    const answer2 = funcForEngine(arrOfQuestions[i]);
+    // Проверяем правильность ответа и выводим облажался или нет
+    if (answer1 === answer2) {
+      console.log('Correct!');
+    } else {
+      console.log(`"${answer1}" is wrong answer ;(. Correct answer was "${answer2}".Let's try again, ${NameChoose}`);
+      return;
+    }
   }
+  console.log(`Congratulations ${NameChoose}!`);
 };
