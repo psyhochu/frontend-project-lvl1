@@ -1,9 +1,5 @@
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/dae7ae6cbf463f42bc33/maintainability)](https://codeclimate.com/github/psyhochu/frontend-project-lvl1/maintainability)
 [![Linter](https://github.com/psyhochu/frontend-project-lvl1/workflows/Linter_starter/badge.svg)](https://github.com/psyhochu/frontend-project-lvl1/actions)
-
-## BRAIN-GAMES
-
-[![asciicast](https://asciinema.org/a/ZdJ3umTEheeD3JyDRQ3zeVW5K.svg)](https://asciinema.org/a/ZdJ3umTEheeD3JyDRQ3zeVW5K)
 
 
 ## BRAIN-EVEN:

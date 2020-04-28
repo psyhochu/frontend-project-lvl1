@@ -18,6 +18,11 @@
     "type": "git",
     "url": "git+https://github.com/psyhochu/frontend-project-lvl1.git"
   },
+  "keywords": [
+    "simpleBashGame",
+    "training",
+    "brainGame"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
