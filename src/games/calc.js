@@ -14,16 +14,17 @@ export const randomMathSymbol = () => {
 const sayAnswer = (string) => {
   const strinToArr = string.split(' ');
   const [num1, operation, num2] = strinToArr;
-  if (operation === '+') {
-    return String(+num1 + +num2);
+  switch (operation) {
+    case '+':
+      return String(+num1 + +num2);
+    case '*':
+      return String(+num1 * +num2);
+    case '-':
+      return String(+num1 - +num2);
+    default:
+      console.log('ERROR НЕ НАШЕЛ ЗНАК');
   }
-  if (operation === '*') {
-    return String(+num1 * +num2);
-  }
-  if (operation === '-') {
-    return String(+num1 - +num2);
-  }
-  return false;
+  return 'ERROR НЕ СРАБОТАЛ SWITCH';
 };
 
 const taskAndAnswer = () => {

@@ -4,12 +4,7 @@ import randomNumber from '../utils.js';
 
 // Принимает число, возвращает yes если число четное, no в других случаях
 // Список вопросов в виде массива
-const sayAnswer = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
+const sayAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
 const taskAndAnswer = () => {
   const task = randomNumber(-100, 100);
