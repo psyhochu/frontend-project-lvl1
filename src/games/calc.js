@@ -1,31 +1,39 @@
-import engine from '../index.js';
-import randomNumber, { randomMathSymbol } from '../utils.js';
+import gamerun from '../index.js';
+import randomNumber from '../utils.js';
 
-// CALC
+
 // Принимает строчку такого формата (A х B) где A и B числа а "х"
 // это знак умножения, сложения или вычитания  calc('123 + 456')
 
-const calc = () => {
-  const question = 'What is the result of the expression?';
-
-  const arrOfQuestions = [`${randomNumber(0, 100)} ${randomMathSymbol()} ${randomNumber(0, 100)}`,
-    `${randomNumber(0, 100)} ${randomMathSymbol()} ${randomNumber(0, 100)}`,
-    `${randomNumber(0, 100)} ${randomMathSymbol()} ${randomNumber(0, 100)}`];
-
-  const funcForEngine = (string) => {
-    const strinToArr = string.split(' ');
-    const [num1, operation, num2] = strinToArr;
-    if (operation === '+') {
-      return String(+num1 + +num2);
-    }
-    if (operation === '*') {
-      return String(+num1 * +num2);
-    }
-    if (operation === '-') {
-      return String(+num1 - +num2);
-    }
-    return false;
-  };
-  return engine(funcForEngine, question, arrOfQuestions);
+// Функция возвращает +,- или *, рандомно
+export const randomMathSymbol = () => {
+  const arr = ['+', '-', '*'];
+  return arr[Math.floor(Math.random() * arr.length)];
 };
-export default calc;
+
+const sayAnswer = (string) => {
+  const strinToArr = string.split(' ');
+  const [num1, operation, num2] = strinToArr;
+  if (operation === '+') {
+    return String(+num1 + +num2);
+  }
+  if (operation === '*') {
+    return String(+num1 * +num2);
+  }
+  if (operation === '-') {
+    return String(+num1 - +num2);
+  }
+  return false;
+};
+
+const taskAndAnswer = () => {
+  const task = `${randomNumber(0, 100)} ${randomMathSymbol()} ${randomNumber(0, 100)}`;
+  const answer = sayAnswer(task);
+  return [task, answer];
+};
+
+const startCalc = () => {
+  const question = 'What is the result of the expression?';
+  return gamerun(question, taskAndAnswer);
+};
+export default startCalc;
