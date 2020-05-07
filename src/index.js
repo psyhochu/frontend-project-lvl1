@@ -17,8 +17,8 @@ export default (description, genGameData) => {
     const answer = readlineSync.question('Your answer: ');
     // Проверяем правильность ответа и выводим облажался или нет
     if (answer !== correctAnswer) {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\
- Let's try again, ${userName}`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+      console.log(`Let's try again, ${userName}`);
       return;
     }
     console.log('Correct!');

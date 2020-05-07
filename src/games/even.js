@@ -1,4 +1,4 @@
-import gamerun from '../index.js';
+import gameRun from '../index.js';
 import genRandomNumber from '../utils.js';
 
 
@@ -12,8 +12,8 @@ const genGameData = () => {
   return [question, answer];
 };
 
-const startEven = () => {
-  const description = 'Answer "yes" if the number is even, otherwise answer "no"';
-  return gamerun(description, genGameData);
-};
+const description = 'Answer "yes" if the number is even, otherwise answer "no"';
+
+const startEven = () => gameRun(description, genGameData);
+
 export default startEven;

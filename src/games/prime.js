@@ -4,17 +4,15 @@ import genRandomNumber from '../utils.js';
 // Принимает строку с одним натуральным числом больше нуля и
 // возвращает 'yes' или 'no' в зависимости от того простое число или нет
 
-const sayAnswer = (stringNumber) => {
-  const num = +stringNumber;
-  if (num < 2) return 'no';
-  const haveAnotherDivisor = (number) => {
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) return true;
-    }
-    return false;
-  };
-  return haveAnotherDivisor(num) ? 'no' : 'yes';
+const isPrime = (number) => {
+  if (number < 2) return false;
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) return false;
+  }
+  return true;
 };
+
+const sayAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
 
 const genGameData = () => {
@@ -23,9 +21,8 @@ const genGameData = () => {
   return [question, answer];
 };
 
+const description = '"yes" if given number is prime. Otherwise answer "no".';
 
-const startPrime = () => {
-  const description = '"yes" if given number is prime. Otherwise answer "no".';
-  return gamerun(description, genGameData);
-};
+const startPrime = () => gamerun(description, genGameData);
+
 export default startPrime;

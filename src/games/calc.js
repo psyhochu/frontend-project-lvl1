@@ -22,9 +22,8 @@ const sayAnswer = (string) => {
     case '-':
       return String(+num1 - +num2);
     default:
-      console.log('ERROR НЕ НАШЕЛ ЗНАК');
+      throw new Error('error text');
   }
-  return 'ERROR НЕ СРАБОТАЛ SWITCH';
 };
 
 const genGameData = () => {
@@ -33,8 +32,8 @@ const genGameData = () => {
   return [question, answer];
 };
 
-const startCalc = () => {
-  const description = 'What is the result of the expression?';
-  return gamerun(description, genGameData);
-};
+const description = 'What is the result of the expression?';
+
+const startCalc = () => gamerun(description, genGameData);
+
 export default startCalc;

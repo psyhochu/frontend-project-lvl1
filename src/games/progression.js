@@ -50,9 +50,8 @@ const genGameData = () => {
   return [question, answer];
 };
 
+const description = 'What number is missing in the progression?';
 
-const startProgression = () => {
-  const description = 'What number is missing in the progression?';
-  return gamerun(description, genGameData);
-};
+const startProgression = () => gamerun(description, genGameData);
+
 export default startProgression;
