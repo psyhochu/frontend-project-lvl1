@@ -1,5 +1,5 @@
 import gamerun from '../index.js';
-import randomNumber from '../utils.js';
+import genRandomNumber from '../utils.js';
 
 // Принимает строку с одним натуральным числом больше нуля и
 // возвращает 'yes' или 'no' в зависимости от того простое число или нет
@@ -17,15 +17,15 @@ const sayAnswer = (stringNumber) => {
 };
 
 
-const taskAndAnswer = () => {
-  const task = randomNumber(-100, 100);
-  const answer = sayAnswer(task);
-  return [task, answer];
+const genGameData = () => {
+  const question = genRandomNumber(-100, 100);
+  const answer = sayAnswer(question);
+  return [question, answer];
 };
 
 
 const startPrime = () => {
-  const question = '"yes" if given number is prime. Otherwise answer "no".';
-  return gamerun(question, taskAndAnswer);
+  const description = '"yes" if given number is prime. Otherwise answer "no".';
+  return gamerun(description, genGameData);
 };
 export default startPrime;

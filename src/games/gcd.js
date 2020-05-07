@@ -1,5 +1,5 @@
 import gamerun from '../index.js';
-import randomNumber from '../utils.js';
+import genRandomNumber from '../utils.js';
 
 
 // greatest common divisor
@@ -16,15 +16,15 @@ const sayAnswer = (string) => {
   return nod(Math.abs(+num1), Math.abs(+num2));
 };
 
-const taskAndAnswer = () => {
-  const task = `${randomNumber(-100, 100)} ${randomNumber(-100, 100)}`;
-  const answer = sayAnswer(task);
-  return [task, answer];
+const genGameData = () => {
+  const question = `${genRandomNumber(-100, 100)} ${genRandomNumber(-100, 100)}`;
+  const answer = sayAnswer(question);
+  return [question, answer];
 };
 
 const startGcd = () => {
-  const question = 'Find the greatest common divisor of given numbers.';
+  const description = 'Find the greatest common divisor of given numbers.';
 
-  return gamerun(question, taskAndAnswer);
+  return gamerun(description, genGameData);
 };
 export default startGcd;

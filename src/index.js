@@ -2,24 +2,26 @@ import readlineSync from 'readline-sync';
 
 
 // ENGINE;
-export default (question, taskAndAnswerFunc) => {
+export default (description, genGameData) => {
   // Спрашивает имя и выводит его на экран
   console.log('Welcome to the Brain Games!');
-  const UserName = readlineSync.question('May I have your name?: ');
-  console.log(`Hello, ${UserName}!`);
+  const userName = readlineSync.question('May I have your name?: ');
+  console.log(`Hello, ${userName}!`);
   // Задаем основной вопрос
-  console.log(question);
+  console.log(description);
   // Выводим задачу, принимаем ответ (три раза в случае правильного ответа):
-  for (let i = 0; i < 3; i += 1) {
-    const [task, correctAnswer] = taskAndAnswerFunc();
-    console.log(`Question: ${task}`);
+  const questionsQuantity = 3;
+  for (let i = 0; i < questionsQuantity; i += 1) {
+    const [question, correctAnswer] = genGameData();
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     // Проверяем правильность ответа и выводим облажался или нет
     if (answer !== correctAnswer) {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".Let's try again, ${UserName}`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\
+ Let's try again, ${userName}`);
       return;
     }
     console.log('Correct!');
   }
-  console.log(`Congratulations ${UserName}!`);
+  console.log(`Congratulations ${userName}!`);
 };

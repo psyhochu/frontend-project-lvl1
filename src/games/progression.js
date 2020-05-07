@@ -1,6 +1,6 @@
 
 import gamerun from '../index.js';
-import randomNumber from '../utils.js';
+import genRandomNumber from '../utils.js';
 
 
 // Функция для вопроса, возвращает строку из 10 цифр через пробел.
@@ -12,12 +12,12 @@ import randomNumber from '../utils.js';
 
 const questionGenerator = (startNumber, endNumber, maxStep) => {
   const arr = [];
-  arr[0] = randomNumber(startNumber, endNumber);
-  const step = randomNumber(1, maxStep);
+  arr[0] = genRandomNumber(startNumber, endNumber);
+  const step = genRandomNumber(1, maxStep);
   for (let i = 1; i < 10; i += 1) {
     arr[i] = arr[i - 1] + step;
   }
-  arr[randomNumber(0, 9)] = '..';
+  arr[genRandomNumber(0, 9)] = '..';
   return arr.join(' ');
 };
 
@@ -44,15 +44,15 @@ const sayAnswer = (string) => {
   return console.log('ERROR, CANT FIND ".."');
 };
 
-const taskAndAnswer = () => {
-  const task = questionGenerator(0, 100, 10);
-  const answer = sayAnswer(task);
-  return [task, answer];
+const genGameData = () => {
+  const question = questionGenerator(0, 100, 10);
+  const answer = sayAnswer(question);
+  return [question, answer];
 };
 
 
 const startProgression = () => {
-  const question = 'What number is missing in the progression?';
-  return gamerun(question, taskAndAnswer);
+  const description = 'What number is missing in the progression?';
+  return gamerun(description, genGameData);
 };
 export default startProgression;

@@ -1,12 +1,12 @@
 import gamerun from '../index.js';
-import randomNumber from '../utils.js';
+import genRandomNumber from '../utils.js';
 
 
 // Принимает строчку такого формата (A х B) где A и B числа а "х"
 // это знак умножения, сложения или вычитания  calc('123 + 456')
 
 // Функция возвращает +,- или *, рандомно
-export const randomMathSymbol = () => {
+export const genRandomMathSymbol = () => {
   const arr = ['+', '-', '*'];
   return arr[Math.floor(Math.random() * arr.length)];
 };
@@ -27,14 +27,14 @@ const sayAnswer = (string) => {
   return 'ERROR НЕ СРАБОТАЛ SWITCH';
 };
 
-const taskAndAnswer = () => {
-  const task = `${randomNumber(0, 100)} ${randomMathSymbol()} ${randomNumber(0, 100)}`;
-  const answer = sayAnswer(task);
-  return [task, answer];
+const genGameData = () => {
+  const question = `${genRandomNumber(0, 100)} ${genRandomMathSymbol()} ${genRandomNumber(0, 100)}`;
+  const answer = sayAnswer(question);
+  return [question, answer];
 };
 
 const startCalc = () => {
-  const question = 'What is the result of the expression?';
-  return gamerun(question, taskAndAnswer);
+  const description = 'What is the result of the expression?';
+  return gamerun(description, genGameData);
 };
 export default startCalc;
