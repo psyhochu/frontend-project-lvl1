@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 
+const questionsQuantity = 3;
 
 // ENGINE;
 export default (description, genGameData) => {
@@ -10,7 +11,6 @@ export default (description, genGameData) => {
   // Задаем основной вопрос
   console.log(description);
   // Выводим задачу, принимаем ответ (три раза в случае правильного ответа):
-  const questionsQuantity = 3;
   for (let i = 0; i < questionsQuantity; i += 1) {
     const [question, correctAnswer] = genGameData();
     console.log(`Question: ${question}`);

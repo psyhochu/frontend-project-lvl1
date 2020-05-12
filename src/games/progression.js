@@ -1,5 +1,5 @@
 
-import gamerun from '../index.js';
+import gameRun from '../index.js';
 import genRandomNumber from '../utils.js';
 
 
@@ -10,48 +10,32 @@ import genRandomNumber from '../utils.js';
 // Первые два значения это диапазон для первого элемента прогрессии,
 // третья цифра максимальное значение шага.
 
-const questionGenerator = (startNumber, endNumber, maxStep) => {
+const elmentsQuantity = 10;
+const progressionGenerator = (startNumber, endNumber, maxStep) => {
   const arr = [];
   arr[0] = genRandomNumber(startNumber, endNumber);
   const step = genRandomNumber(1, maxStep);
-  for (let i = 1; i < 10; i += 1) {
+  for (let i = 1; i < elmentsQuantity; i += 1) {
     arr[i] = arr[i - 1] + step;
   }
   arr[genRandomNumber(0, 9)] = '..';
-  return arr.join(' ');
+  return [arr, step];
 };
 
-const sayAnswer = (string) => {
-  const stringToArr = string.split(' ');
-  const firstElement = +stringToArr[0];
-  const secondElement = +stringToArr[1];
-  if (stringToArr[9] === '..') {
-    const step = secondElement - firstElement;
-    return String(+stringToArr[8] + step);
-  }
-  if (stringToArr[8] === '..') {
-    const step = secondElement - firstElement;
-    return String(+stringToArr[7] + step);
-  }
-  for (let i = 0; i < 10; i += 1) {
-    if (stringToArr[i] === '..') {
-      const nextElementOfarr = +stringToArr[i + 1];
-      const nextAfternext = +stringToArr[i + 2];
-      const step = nextAfternext - nextElementOfarr;
-      return String(nextElementOfarr - step);
-    }
-  }
-  return console.log('ERROR, CANT FIND ".."');
+const getAnswer = (progression, step) => {
+  if (progression.indexOf('..') === -1) { throw new Error('cant find ".."'); }
+  return progression.indexOf('..') === 0 ? progression[1] - step : progression[progression.indexOf('..') - 1] + step;
 };
 
 const genGameData = () => {
-  const question = questionGenerator(0, 100, 10);
-  const answer = sayAnswer(question);
-  return [question, answer];
+  const genProgression = progressionGenerator(0, 100, 10);
+  const [progression, step] = genProgression;
+  const answer = getAnswer(progression, step);
+  return [progression.join(' '), String(answer)];
 };
 
 const description = 'What number is missing in the progression?';
 
-const startProgression = () => gamerun(description, genGameData);
+const startProgression = () => gameRun(description, genGameData);
 
 export default startProgression;
