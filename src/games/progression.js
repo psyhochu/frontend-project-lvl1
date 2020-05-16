@@ -10,12 +10,12 @@ import genRandomNumber from '../utils.js';
 // Первые два значения это диапазон для первого элемента прогрессии,
 // третья цифра максимальное значение шага.
 
-const elmentsQuantity = 10;
+const progressionLength = 10;
 const progressionGenerator = (startNumber, endNumber, maxStep) => {
   const arr = [];
   arr[0] = genRandomNumber(startNumber, endNumber);
   const step = genRandomNumber(1, maxStep);
-  for (let i = 1; i < elmentsQuantity; i += 1) {
+  for (let i = 1; i < progressionLength; i += 1) {
     arr[i] = arr[i - 1] + step;
   }
   arr[genRandomNumber(0, 9)] = '..';

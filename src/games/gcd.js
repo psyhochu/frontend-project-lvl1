@@ -7,11 +7,8 @@ import genRandomNumber from '../utils.js';
 // и возвращает НОД этих чисел
 
 const getGcd = (x, y) => {
-  const num1 = Math.abs(x);
-  const num2 = Math.abs(y);
-  if (num2 > num1) return getGcd(num2, num1);
-  if (num2 === 0) return num1;
-  return getGcd(num2, num1 % num2);
+  if (y === 0) return x;
+  return getGcd(Math.abs(y), Math.abs(x % y));
 };
 
 
@@ -20,7 +17,7 @@ const genGameData = () => {
   const num2 = genRandomNumber(-100, 100);
   const question = `${num1} ${num2}`;
   const answer = getGcd(num1, num2);
-  return [String(question), String(answer)];
+  return [question, String(answer)];
 };
 const description = 'Find the greatest common divisor of given numbers.';
 
