@@ -7,8 +7,8 @@ import genRandomNumber from '../utils.js';
 // и возвращает НОД этих чисел
 
 const getGcd = (x, y) => {
-  if (y === 0) return x;
-  return getGcd(Math.abs(y), Math.abs(x % y));
+  if (y === 0) return Math.abs(x);
+  return getGcd(y, x % y);
 };
 
 
